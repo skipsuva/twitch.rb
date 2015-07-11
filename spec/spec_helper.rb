@@ -1,14 +1,15 @@
 require 'bundler'
-Bundler.require(:default, :test)
+Bundler.require(:default, :development, :test)
 
 require 'twitch_api'
 
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+end
+
 RSpec.configure do |config|
-  VCR.configure do |c|
-    c.default_cassette_options = { record: :new_episodes }
-    c.cassette_library_dir = 'spec/cassettes'
-    c.hook_into :webmock
-  end
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

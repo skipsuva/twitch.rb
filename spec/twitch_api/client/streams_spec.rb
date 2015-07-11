@@ -4,17 +4,15 @@ describe TwitchApi::Client::Streams do
   describe ".stream", :vcr do
     context 'that is live' do
       it "returns the matching stream" do
-        stream = client.stream("#spencer1248")
-        expect(stream.game).to eq("Programming")
-        assert_requested :get, twitch_url("/kraken/streams/Spencer124816")
+        response = client.stream("spencer124816")
+        expect(response.stream.game).to eq("Programming")
       end
     end
 
     context 'that is not live' do
       it "returns the matching stream" do
-        stream = client.stream("#spencer1248")
-        expect(stream.game).to eq nil
-        assert_requested :get, twitch_url("/kraken/streams/Spencer124816")
+        response = client.stream("spencer124816")
+        expect(response.game).to eq nil
       end
     end
   end
