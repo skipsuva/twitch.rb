@@ -14,8 +14,8 @@ module TwitchApi
 
     def process_hash(hash)
       hash.each do |k, v|
-        singleton_class.class_eval do; attr_accessor k; end
-        send("#{k}=", process_value(v))
+        singleton_class.class_eval do; attr_reader k; end
+        instance_variable_set(:"@#{k}", process_value(v))
       end
     end
 
