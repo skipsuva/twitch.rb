@@ -1,5 +1,6 @@
 require 'twitch_api/errors'
 require 'twitch_api/resource'
+require 'twitch_api/relation'
 require 'twitch_api/connection'
 require 'twitch_api/client/streams'
 
