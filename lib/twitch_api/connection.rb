@@ -32,8 +32,7 @@ module TwitchApi
     end
 
     def build_resource(response)
-      hash = JSON.parse(response.body)
-      Resource.new(self, hash)
+      Resource.new(self, JSON.parse(response.body))
     end
   end
 end
