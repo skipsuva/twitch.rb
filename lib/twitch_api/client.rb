@@ -1,8 +1,7 @@
 require 'twitch_api/errors'
+require 'twitch_api/resource'
 require 'twitch_api/connection'
 require 'twitch_api/client/streams'
-
-include TwitchApi::Client::Streams
 
 module TwitchApi
   API_ENDPOINT = "https://api.twitch.tv".freeze
@@ -11,5 +10,6 @@ module TwitchApi
 
   class Client
     include TwitchApi::Connection
+    include TwitchApi::Client::Streams
   end
 end

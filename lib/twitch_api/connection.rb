@@ -15,8 +15,8 @@ module TwitchApi
         f.headers[:accept] = MEDIA_TYPE
         f.headers[:content_type] = 'application/json'
         f.headers[:user_agent] = USER_AGENT
-        f.request  :url_encoded             # form-encode POST params
-        f.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+        f.request :url_encoded
+        f.adapter Faraday.default_adapter
       end
     end
 
@@ -25,14 +25,15 @@ module TwitchApi
     def handle_response(response)
       case response.status
       when 200
-        parse_response(response)
+        build_resource(response)
       when 404
         raise NotFound, response.body
       end
     end
 
-    def parse_response(response)
-      data = JSON.parse(response.body)
+    def build_resource(response)
+      hash = JSON.parse(response.body)
+      Resource.new(hash)
     end
   end
 end
