@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 14 Jul 2015 02:19:17 GMT
+      - Tue, 14 Jul 2015 02:20:24 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -43,15 +43,15 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge,chrome=1
       Etag:
-      - '"7bcf1aee659457d71968c5e854074460"'
+      - '"70acc77afc2b1752bce0abb8edf00d56"'
       X-Request-Id:
-      - bf77e5787e31c5158885362b953a2cc9
+      - 7f96b5ddec6fe4cf0eef68efa6611af5
       X-Runtime:
-      - '0.040929'
+      - '0.039559'
       Accept-Ranges:
       - bytes
       X-Varnish:
-      - '1450141614'
+      - '1450368963'
       Age:
       - '0'
       Via:
@@ -64,5 +64,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"_links":{"self":"https://api.twitch.tv/kraken/streams/spencer124816","channel":"https://api.twitch.tv/kraken/channels/spencer124816"},"stream":null}'
     http_version: 
-  recorded_at: Tue, 14 Jul 2015 02:19:17 GMT
+  recorded_at: Tue, 14 Jul 2015 02:20:24 GMT
 recorded_with: VCR 2.9.3

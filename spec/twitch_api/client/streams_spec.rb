@@ -12,7 +12,7 @@ describe TwitchApi::Client::Streams do
     context 'that is not live' do
       it "returns the matching stream" do
         response = client.stream("spencer124816")
-        expect(response.game).to eq nil
+        expect(response.stream).to eq nil
       end
     end
   end
