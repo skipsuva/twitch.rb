@@ -3,7 +3,11 @@ require 'json'
 
 module TwitchApi
   module Connection
-    attr_reader :agent
+    attr_reader :agent, :token
+
+    def initialize(token)
+      @token = token
+    end
 
     def get(path, opts={})
       response = agent.get(path, opts)
@@ -15,6 +19,7 @@ module TwitchApi
         f.headers[:accept] = MEDIA_TYPE
         f.headers[:content_type] = 'application/json'
         f.headers[:user_agent] = USER_AGENT
+        f.headers[:client_id] = token
         f.request :url_encoded
         f.adapter Faraday.default_adapter
       end
